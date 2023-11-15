@@ -15,6 +15,22 @@ export default {
       store,
     }
   },
+  methods: {
+    getMovies() {
+      const url = this.store.apiUrl + this.store.endPoint.movie;
+      axios.get(url, { params: this.store.params }).then((res) => {
+        console.log(res.data.results);
+      })
+
+    }
+  },
+  mounted() {
+
+  },
+  created() {
+    this.getMovies();
+  },
+
 }
 </script>
 
