@@ -16,4 +16,5 @@ export const store = reactive({
   movieList: [],
   seriesList: [],
   imgPath: "https://image.tmdb.org/t/p/w342/",
+  urlImg: "'https://image.tmdb.org/t/p/'",
 });
