@@ -27,7 +27,7 @@
         </h4>
 
         <h6 class="fs-4 text-start mt-5">OverView:</h6>
-        <div id="overview" class="text-white">
+        <div id="overview" class="text-white mb-3">
           {{ overview }}
         </div>
       </div>
@@ -50,6 +50,7 @@ export default {
   data() {
     return {
       flags: ["us", "fr", "it", "en", "kr"],
+      currentFlag: "",
     };
   },
   methods: {},
@@ -64,7 +65,18 @@ export default {
     getRate: function () {
       return Math.ceil(this.rate / 2);
     },
+    /* getFlagApi() {
+      const apiFlag = this.language.toLocaleUpperCase().substring(0, 2);
+      if (apiFlag === "EN") {
+        apiFlag = "GB";
+      } else if (apiFlag === "JA") {
+        apiFlag = "JP";
+      } 
+      console.log(apiFlag);
+      this.currentFlag = "https://flagsapi.com/" + apiFlag + "/flat/64.png";
+    }, */
   },
+  mounted() {},
 };
 </script>
 
@@ -88,7 +100,7 @@ export default {
 }
 
 #overview {
-  height: 300px;
+  height: 100px;
   width: 100%;
   overflow-y: scroll;
   text-align: left;
