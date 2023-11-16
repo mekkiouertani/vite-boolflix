@@ -23,7 +23,8 @@ export default {
       axios.get(url, { params: this.store.params }).then((res) => {
         console.log(res.data.results);
         this.store.movieList = res.data.results
-      })
+      }),
+        this.store.params.query = "";
     },
     getTv() {
       const url = this.store.apiUrl + this.store.endPoint.series;
@@ -31,7 +32,8 @@ export default {
         console.log(res.data.results);
         this.store.seriesList = res.data.results
       })
-    }
+    },
+
   },
   mounted() {
     this.getMovies();

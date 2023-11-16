@@ -2,8 +2,11 @@
     <div class="container-fluid bg-black p-3 d-flex justify-content-between ">
         <h1>Boolflix</h1>
         <div>
-            <input type="text" class="fs-4 mt-3" placeholder="Cerca.." v-model="this.store.params.query"
-                @keyup="$emit('search-bar')">
+            <span class="position-relative ">
+                <input type="text" class="fs-4 mt-3" placeholder="Cerca.." v-model="this.store.params.query"
+                    @keyup.enter="$emit('search-bar')">
+                <i @click="$emit('search-bar')" class="fa-solid fa-magnifying-glass p-1 rounded position-absolute"></i>
+            </span>
         </div>
     </div>
 </template>
@@ -34,5 +37,12 @@ input[type=text] {
     background-color: transparent;
     color: white;
     height: 20px;
+}
+
+i {
+    bottom: 1px;
+    right: 1px;
+    background-color: red;
+    color: white;
 }
 </style>

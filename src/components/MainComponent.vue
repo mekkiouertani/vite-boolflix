@@ -2,31 +2,32 @@
     <div class="container">
 
         <section id="movie" class="mt-5">
-            <h2>Movie</h2>
+            <h2>MOVIE</h2>
             <div class="row gy-2 border-bottom pb-3 ">
-                <div v-for="movie in store.movieList" :key="movie.id" class="mt-5 col-12 col-md-4 col-lg-3">
-                    <h3>{{ movie.title }} </h3>
+                <div v-for="el in store.movieList" :key="el.id" class="mt-5 col-12 col-md-4 col-lg-3">
+                    <h3>{{ el.title }} </h3>
                     <p>
-                        <span class="bg-black text-white">{{ movie.original_language }}</span>
-                        <span>{{ movie.vote_average }}</span>
+                        <img :src="getFlag" :alt="el.original_language">
+                        <span class="bg-black text-white">{{ el.original_language }}</span>
+                        <span>{{ el.vote_average }}</span>
                     </p>
                     <p class="text-white">
-                        {{ movie.overview }}
+                        {{ el.overview }}
                     </p>
                     <div class="poster">
-                        <img :src="store.imgPath + movie.poster_path" alt="">
+                        <img :src="store.imgPath + el.poster_path" alt="">
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="series" class="mt-5">
-            <h2>Series</h2>
+            <h2>SERIES</h2>
             <div class="row">
-                <div v-for="series in   store.seriesList    " class="col-12 col-md-4 col-lg-3">
-                    <h3>{{ series.name }} <span class="bg-black text-white">{{ series.original_language }}</span></h3>
-                    <p class="text-white">{{ series.overview }}</p>
-                    <img :src="store.imgPath + series.poster_path" alt="">
+                <div v-for="el in   store.seriesList    " class="col-12 col-md-4 col-lg-3">
+                    <h3>{{ el.name }} <span class="bg-black text-white">{{ el.original_language }}</span></h3>
+                    <p class="text-white">{{ el.overview }}</p>
+                    <img :src="store.imgPath + el.poster_path" alt="">
                 </div>
             </div>
         </section>
@@ -41,8 +42,19 @@ export default {
     data() {
         return {
             store,
+            flags: [
+                'us',
+                'fr',
+                'it',
+            ]
         }
     },
+    computed: {
+        getFlag() {
+            let flag = `../images/flags/`
+            return flag;
+        }
+    }
 }
 </script>
 
