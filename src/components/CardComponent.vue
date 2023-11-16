@@ -1,22 +1,31 @@
 <template>
-    <div class="mt-5 col-12 col-md-4 col-lg-3">
+    <div class="box">
+        <div class="box-inner">
 
-        <h3>{{ title }} </h3>
-        <div id="flag">
-            <img :src="getFlag" :alt="title">
-        </div>
+            <div class="box-front">
+                <img :src="img" :alt="title">
+            </div>
 
-        <p>
-            <span class="bg-black text-white">{{ originalLan }}</span>
-            <i v-for="n in 5" :key="n" class="fa-star" :class="(n <= getRate) ? 'fa solid' : 'fa-regular'"></i>
-        </p>
+            <div class="box-back p-2">
+                <h2 class="mt-2"> {{ title }}</h2>
 
-        <p class="text-white">
-            {{ overview }}
-        </p>
+                <div class=" d-flex  justify-content-between align-items-start ">
+                    <div id="flag">
+                        <img :src="getFlag" :alt="title">
+                    </div>
+                    <div id="star">
+                        <i v-for="n in 5" :key="n" class="fa-star" :class="(n <= getRate) ? 'fa-solid' : 'fa-regular'"></i>
+                        <span class="d-block">Voti totali: {{ vote }}</span>
+                    </div>
+                </div>
+                <h4 class="mt-2">Titolo originale: <span class="fs-3">{{ originalTitle }}</span></h4>
 
-        <div class="poster">
-            <img :src="img" alt="">
+                <h6 class="fs-4 text-start mt-5">OverView: </h6>
+                <div id="overview" class="text-white">
+                    {{ overview }}
+                </div>
+
+            </div>
         </div>
     </div>
 </template>
@@ -27,11 +36,11 @@ export default {
     props: {
         img: String,
         title: String,
-        originalTitile: String,
+        originalTitle: String,
         overview: String,
-        originalLan: String,
         rate: Number,
         language: String,
+        vote: Number,
     },
     data() {
         return {
@@ -55,7 +64,7 @@ export default {
             }
             return flag;
         },
-        getRate() {
+        getRate: function () {
             return Math.ceil(this.rate / 2);
         }
     }
@@ -63,43 +72,95 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.fa-star {
+    color: gold;
+}
+
 #flag {
     height: 50px;
-    widows: 100px;
+    width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
 
     img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
+        object-position: center;
     }
 }
 
-h2 {
-    font-size: 5em;
-    margin-bottom: 50px;
-}
-
-h3 {
-    height: 80px;
-}
-
-p {
-    height: 100px;
+#overview {
+    height: 300px;
     width: 100%;
     overflow-y: scroll;
-    text-align: right;
-    padding-right: 5px;
+    text-align: left;
 }
 
-.poster {
+h4 {
+    text-align: left;
+}
 
+.box {
+    background-color: transparent;
+    width: 300px;
+    height: 450px;
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.box-inner {
+    position: relative;
     width: 100%;
-    height: 50%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.box:hover .box-inner {
+    transform: rotateY(180deg);
+}
+
+.box-front,
+.box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.box-front {
+    background-color: #cccccc;
+    height: 100%;
+    width: 100%;
 
     img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
+    }
+}
+
+.box-back {
+    background: linear-gradient(315deg, rgb(22, 22, 22) 3%, rgb(31, 31, 31) 38%, rgb(0, 0, 0) 68%, rgb(22, 22, 22) 98%);
+    animation: gradient 3s ease infinite;
+    background-size: 200% 200%;
+    color: #eeeeee;
+    transform: rotateY(180deg);
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 100%;
+    }
+
+    100% {
+        background-position: 0% 0%;
     }
 }
 </style>

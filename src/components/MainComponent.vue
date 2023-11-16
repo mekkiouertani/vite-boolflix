@@ -3,9 +3,10 @@
 
         <section id="movie" class="mt-5">
             <h2>MOVIE</h2>
-            <div class="row gy-2 border-bottom pb-3 ">
-                <CardComponent v-for="el in store.movieList" :title="el.title" :overview="el.overview"
-                    :img="store.imgPath + el.poster_path" :language="el.original_language" />
+            <div class="d-flex flex-wrap align-content-center align-items-center ">
+                <CardComponent class="col-12" v-for="el in store.movieList" :title="el.title" :overview="el.overview"
+                    :img="store.imgPath + el.poster_path" :language="el.original_language" :rate="el.vote_average"
+                    :vote="el.vote_count" :originalTitle="el.original_title" />
 
             </div>
         </section>
@@ -43,4 +44,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+h2 {
+    font-size: 5em;
+    margin-bottom: 50px;
+}
+</style>
