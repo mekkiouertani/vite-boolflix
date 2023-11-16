@@ -2,14 +2,21 @@
     <div class="container-fluid bg-black p-3 d-flex justify-content-between ">
         <h1>Boolflix</h1>
         <div>
-            <input type="text" class="fs-4 mt-3" placeholder="Cerca..">
+            <input type="text" class="fs-4 mt-3" placeholder="Cerca.." v-model="this.store.params.query"
+                @keyup="$emit('search-bar')">
         </div>
     </div>
 </template>
 
 <script>
+import { store } from "../data/store.js";
 export default {
     name: "TitleComponent",
+    data() {
+        return {
+            store,
+        }
+    },
 }
 </script>
 
