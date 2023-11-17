@@ -10,7 +10,8 @@
 
         <div class="d-flex justify-content-between align-items-start">
           <div id="flag">
-            <img :src="getFlag" :alt="title" />
+            <!-- FLAG -->
+            <img :src="getFlagApi" :alt="title" />
           </div>
           <div id="star">
             <i
@@ -49,32 +50,32 @@ export default {
   },
   data() {
     return {
-      flags: ["us", "fr", "it", "en", "kr"],
-      currentFlag: "",
+      /* flags: ["us", "fr", "it", "en"], */
     };
   },
   methods: {},
   computed: {
-    getFlag() {
+    /* getFlag() {
       let flag = `/images/flags/${this.language}.svg`;
       if (!this.flags.includes(this.language)) {
         flag = `/images/flags/fake.png`;
       }
       return flag;
-    },
+    }, */
     getRate: function () {
       return Math.ceil(this.rate / 2);
     },
-    /* getFlagApi() {
-      const apiFlag = this.language.toLocaleUpperCase().substring(0, 2);
+    getFlagApi() {
+      let apiFlag = this.language.toLocaleUpperCase().substring(0, 2);
       if (apiFlag === "EN") {
         apiFlag = "GB";
       } else if (apiFlag === "JA") {
         apiFlag = "JP";
-      } 
-      console.log(apiFlag);
-      this.currentFlag = "https://flagsapi.com/" + apiFlag + "/flat/64.png";
-    }, */
+      }
+      console.log(`hello`, apiFlag);
+      return (this.currentFlag =
+        "https://flagsapi.com/" + apiFlag + "/flat/64.png");
+    },
   },
   mounted() {},
 };

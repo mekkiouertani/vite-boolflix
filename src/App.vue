@@ -43,9 +43,17 @@ export default {
     },
   },
   mounted() {
-    this.getMovies();
-    this.getTv();
-    this.getPopular();
+    Promise.all([this.getMovies(), this.getTv(), this.getPopular()])
+      .then(() => {
+        console.log("All data fetched successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+        this.store.error = error.message;
+      })
+      .finally(() => {
+        store.loading = false;
+      });
   },
   created() {},
 };

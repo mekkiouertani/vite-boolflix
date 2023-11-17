@@ -1,8 +1,10 @@
 <template>
   <div class="container">
     <!-- TREND MOVIE -->
+
     <section id="trend-movie" v-show="store.movieList.length <= 0" class="mt-5">
       <h2>popular movies of the week</h2>
+      <LoaderComponent v-show="store.popularList.length <= 0" />
       <div
         class="d-flex flex-wrap justify-content-center align-content-center align-items-center"
       >
@@ -61,6 +63,7 @@
 <script>
 import { store } from "../data/store.js";
 import CardComponent from "./CardComponent.vue";
+import LoaderComponent from "./LoaderComponent.vue";
 export default {
   name: "MainComponent",
   data() {
@@ -69,7 +72,7 @@ export default {
     };
   },
   computed: {},
-  components: { CardComponent },
+  components: { CardComponent, LoaderComponent },
 };
 </script>
 
