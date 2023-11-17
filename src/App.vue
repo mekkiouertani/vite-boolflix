@@ -1,5 +1,5 @@
 <template>
-  <!-- <TitleComponent id="title" @searchBar="getTv(), getMovies()" /> -->
+  <TitleComponent id="title" @searchBar="getTv(), getMovies()" />
   <MainComponent id="mainn" />
 </template>
 
@@ -25,7 +25,6 @@ export default {
         this.store.movieList = res.data.results;
       }),
         (this.store.params.query = "");
-      store.popularList = "";
     },
     getTv() {
       const url = this.store.apiUrl + this.store.endPoint.series;

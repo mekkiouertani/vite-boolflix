@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="container-fluid bg-black p-3 d-flex justify-content-between flex-wrap"
-  >
+  <div class="container-fluid p-3 d-flex justify-content-between flex-wrap">
     <h1>Boolflix</h1>
     <div>
       <span class="position-relative">
@@ -63,7 +61,13 @@ select {
 .container-fluid {
   min-width: 350px;
   position: fixed;
-  z-index: 1000;
+  z-index: 9000;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 66%,
+    rgba(255, 255, 255, 0) 89%
+  );
 }
 h1 {
   color: red;
