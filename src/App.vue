@@ -45,17 +45,26 @@ export default {
   mounted() {
     Promise.all([this.getMovies(), this.getTv(), this.getPopular()])
       .then(() => {
-        console.log("All data fetched successfully");
+        console.log("success");
       })
       .catch((error) => {
-        console.log(error);
+        console.log("catch error", error);
         this.store.error = error.message;
       })
       .finally(() => {
         store.loading = false;
       });
   },
-  created() {},
+  created() {
+    axios
+      .get(store.apiGenre + "genre/" + store.endPoint.movie + "/list", {
+        params: store.params,
+      })
+      .then((res) => {
+        store.genreMovies = res.data.genres;
+        console.log(`genere`, res.data.genres);
+      });
+  },
 };
 </script>
 

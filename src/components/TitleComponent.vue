@@ -16,6 +16,20 @@
           @click="$emit('search-bar')"
           class="fa-solid fa-magnifying-glass p-1 rounded position-absolute"
         ></i>
+        <select
+          name="genre"
+          id="genre"
+          class="text-secondary d-block position-absolute end-0"
+        >
+          <option value="">Select A Genre</option>
+          <option
+            value="{{ el.name }}"
+            v-for="(el, index) in store.genreMovies"
+            :key="el.id"
+          >
+            {{ el.name }}
+          </option>
+        </select>
       </span>
     </div>
   </div>
@@ -30,10 +44,14 @@ export default {
       store,
     };
   },
+  created() {},
 };
 </script>
 
 <style lang="scss" scoped>
+select {
+  background-color: transparent;
+}
 .container-fluid {
   min-width: 350px;
   position: fixed;

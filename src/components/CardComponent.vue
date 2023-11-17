@@ -10,7 +10,6 @@
 
         <div class="d-flex justify-content-between align-items-start">
           <div id="flag">
-            <!-- FLAG -->
             <img :src="getFlagApi" :alt="title" />
           </div>
           <div id="star">
@@ -95,8 +94,7 @@ export default {
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
+    transform: scale(1.6);
   }
 }
 
