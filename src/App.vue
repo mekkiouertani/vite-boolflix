@@ -1,5 +1,5 @@
 <template>
-  <TitleComponent id="title" @searchBar="getTv(), getMovies()" />
+  <!-- <TitleComponent id="title" @searchBar="getTv(), getMovies()" /> -->
   <MainComponent id="mainn" />
 </template>
 

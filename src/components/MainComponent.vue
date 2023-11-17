@@ -1,7 +1,17 @@
 <template>
+  <HeroComponent />
   <div class="container">
     <!-- TREND MOVIE -->
-
+    <!-- <JumboComponent
+      v-for="el in store.popularList"
+      :title="el.title"
+      :overview="el.overview"
+      :img="store.imgPath + el.poster_path"
+      :language="el.original_language"
+      :rate="el.vote_average"
+      :vote="el.vote_count"
+      :originalTitle="el.original_title"
+    /> -->
     <section id="trend-movie" v-show="store.movieList.length <= 0" class="mt-5">
       <h2>popular movies of the week</h2>
       <LoaderComponent v-show="store.popularList.length <= 0" />
@@ -63,6 +73,8 @@
 <script>
 import { store } from "../data/store.js";
 import CardComponent from "./CardComponent.vue";
+import HeroComponent from "./HeroComponent.vue";
+import JumboComponent from "./JumboComponent.vue";
 import LoaderComponent from "./LoaderComponent.vue";
 export default {
   name: "MainComponent",
@@ -72,7 +84,7 @@ export default {
     };
   },
   computed: {},
-  components: { CardComponent, LoaderComponent },
+  components: { CardComponent, LoaderComponent, JumboComponent, HeroComponent },
 };
 </script>
 

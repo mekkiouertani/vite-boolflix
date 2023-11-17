@@ -19,12 +19,14 @@
         <select
           name="genre"
           id="genre"
-          class="text-secondary d-block position-absolute end-0"
+          class="text-secondary d-block position-absolute end-0 d-none"
+          v-model="movieId"
+          @change="filterGenreMovie"
         >
           <option value="">Select A Genre</option>
           <option
-            value="{{ el.name }}"
-            v-for="(el, index) in store.genreMovies"
+            value="{{ el.id }}"
+            v-for="el in store.genreMovies"
             :key="el.id"
           >
             {{ el.name }}
@@ -42,7 +44,13 @@ export default {
   data() {
     return {
       store,
+      movieId: "",
     };
+  },
+  methods: {
+    filterGenreMovie() {
+      store.movieList.filter((el) => {});
+    },
   },
   created() {},
 };
