@@ -1,4 +1,5 @@
 <template>
+  <IntroComponent id="intro" />
   <BackGround id="back" />
   <TitleComponent id="title" @searchBar="getTv(), getMovies()" />
   <MainComponent id="mainn" />
@@ -10,10 +11,11 @@ import axios from "axios";
 import TitleComponent from "./components/TitleComponent.vue";
 import MainComponent from "./components/MainComponent.vue";
 import BackGround from "./components/BackGround.vue";
+import IntroComponent from "./components/IntroComponent.vue";
 
 export default {
   name: "App",
-  components: { TitleComponent, MainComponent, BackGround },
+  components: { TitleComponent, MainComponent, BackGround, IntroComponent },
   data() {
     return {
       store,
@@ -75,6 +77,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#intro {
+  position: absolute;
+  z-index: 9999;
+  height: 110vh;
+  width: 100%;
+}
 #mainn {
   padding-top: 100px;
 }

@@ -75,7 +75,7 @@ select {
   background-color: transparent;
 }
 .container-fluid {
-  height: 100vh;
+  height: 102vh;
   width: 350px;
   position: fixed;
   z-index: 6000;
