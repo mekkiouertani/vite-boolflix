@@ -30,7 +30,7 @@
           v-model="movieId"
           @change="filterGenreMovie"
         >
-          <option value="">Select A Genre</option>
+          <option value="">work in progress</option>
           <option
             value="{{ el.id }}"
             v-for="el in store.genreMovies"

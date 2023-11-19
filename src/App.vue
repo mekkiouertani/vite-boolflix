@@ -1,4 +1,5 @@
 <template>
+  <BackGround />
   <TitleComponent id="title" @searchBar="getTv(), getMovies()" />
   <MainComponent id="mainn" />
 </template>
@@ -8,10 +9,11 @@ import { store } from "./data/store.js";
 import axios from "axios";
 import TitleComponent from "./components/TitleComponent.vue";
 import MainComponent from "./components/MainComponent.vue";
+import BackGround from "./components/BackGround.vue";
 
 export default {
   name: "App",
-  components: { TitleComponent, MainComponent },
+  components: { TitleComponent, MainComponent, BackGround },
   data() {
     return {
       store,
