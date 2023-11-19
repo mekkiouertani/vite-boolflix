@@ -5,7 +5,7 @@
         <img :src="img" :alt="title" />
       </div>
 
-      <div class="box-back p-2">
+      <div class="box-back p-2 position-relative">
         <h2 class="mt-2">{{ title }}</h2>
 
         <div class="d-flex justify-content-between align-items-start">
@@ -26,8 +26,8 @@
           Titolo originale: <span class="fs-3">{{ originalTitle }}</span>
         </h4>
 
-        <h6 class="fs-4 text-start mt-5">OverView:</h6>
-        <div id="overview" class="text-white mb-3">
+        <h6 class="fs-4 text-start position-absolute">OverView:</h6>
+        <div id="overview" class="text-white mb-3 position-absolute">
           {{ overview }}
         </div>
       </div>
@@ -81,6 +81,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h6 {
+  bottom: 160px;
+}
 .fa-star {
   color: gold;
 }
@@ -99,8 +102,10 @@ export default {
 }
 
 #overview {
-  height: 100px;
-  width: 100%;
+  padding-right: 10px;
+  bottom: 0;
+  height: 150px;
+  width: 95%;
   overflow-y: scroll;
   text-align: left;
 }

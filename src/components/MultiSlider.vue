@@ -1,6 +1,6 @@
 <template>
   <Carousel
-    :autoplay="2000"
+    :autoplay="4000"
     :itemsToShow="3.95"
     :wrapAround="true"
     :transition="500"
@@ -14,7 +14,23 @@
           />
         </div>
         <h2 class="position-absolute text-secondary">{{ el.title }}</h2>
+        <!--  -->
+        <!-- <div class="dropdown position-absolute">
+          <button
+            class="btn btn-secondary dropdown-toggle bg-black"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          ></button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div> -->
       </div>
+
+      <!--  -->
     </Slide>
   </Carousel>
 </template>
@@ -41,6 +57,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+button {
+  background-color: transparent !important;
+  border: 0px;
+  color: red;
+  padding: 0 !important;
+  font-size: 2em;
+}
+.dropdown {
+  top: 0px;
+  right: 10px;
+  z-index: 9999;
+}
 h2 {
   width: 100%;
   bottom: 20px;

@@ -7,7 +7,7 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img
-          src="https://www.punto-informatico.it/app/uploads/2023/05/netflix-2120x848.jpg"
+          src="https://media1.giphy.com/media/XCopjiQ1O29sA/giphy.gif?cid=ecf05e47f652ux1ora9lotl0qnrt9tbpt2u49zp1i1nalvrk&ep=v1_gifs_search&rid=giphy.gif&ct=g"
           class="d-block w-100"
           alt="logo"
         />
@@ -70,15 +70,21 @@ export default {
 h2 {
   max-width: 45%;
   transition: 2s ease-in;
-  left: 30px;
+  right: 0px;
   position: relative;
   color: white;
   z-index: 3000;
-  top: 0;
+  bottom: -10px;
   margin-top: 100px;
   font-size: 100px;
   width: 100%;
   height: 100px;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.8015581232492998) 63%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 #myCarousel {
   margin-top: 100px;
@@ -102,8 +108,8 @@ button {
   z-index: 7777;
   height: 70px;
   width: 70px;
-  margin: 100px;
-  top: 75%;
+  margin: 20px 20px 0px 220px;
+  top: 50%;
   background: rgb(0, 0, 0);
   background: radial-gradient(
     circle,
@@ -113,12 +119,12 @@ button {
 }
 #canva {
   z-index: 90;
-  background: rgb(0, 0, 0);
+  /*  background: rgb(0, 0, 0);
   background: linear-gradient(
     93deg,
     rgba(0, 0, 0, 0.9023984593837535) 63%,
     rgba(255, 255, 255, 0) 97%
-  );
+  ); */
   height: 100%;
   width: 40%;
   top: 0;

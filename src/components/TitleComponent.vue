@@ -1,6 +1,15 @@
 <template>
-  <div class="container-fluid p-3 d-flex justify-content-between flex-wrap">
-    <h1>Boolflix</h1>
+  <div class="container-fluid p-3">
+    <h1 class="postition-relative d-flex">
+      <span id="boo">B</span>
+      <span>o</span>
+      <span>o</span>
+      <span>l</span>
+      <span>f</span>
+      <span>l</span>
+      <span>i</span>
+      <span>x</span>
+    </h1>
     <div>
       <span class="position-relative">
         <input
@@ -17,7 +26,7 @@
         <select
           name="genre"
           id="genre"
-          class="text-secondary d-block position-absolute end-0 d-none"
+          class="text-secondary d-block position-absolute w-100 mt-4 bg-black"
           v-model="movieId"
           @change="filterGenreMovie"
         >
@@ -55,25 +64,35 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h1 {
+  span:nth-child(2) {
+    /* position: relative;
+    bottom: 5px; */
+    font-size: 0.9em;
+  }
+}
 select {
   background-color: transparent;
 }
 .container-fluid {
-  min-width: 350px;
+  height: 100vh;
+  width: 350px;
   position: fixed;
-  z-index: 9000;
+  z-index: 6000;
   background: rgb(0, 0, 0);
   background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 1) 66%,
-    rgba(255, 255, 255, 0) 89%
+    90deg,
+    rgba(0, 0, 0, 1) 47%,
+    rgba(255, 255, 255, 0) 58%
   );
 }
 h1 {
   color: red;
   font-size: 3em;
 }
-
+input {
+  width: 150px;
+}
 input[type="text"] {
   padding: 13px 0px;
   margin: 8px 0;
