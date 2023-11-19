@@ -85,7 +85,7 @@ h2 {
 }
 
 .carousel-inner {
-  height: 800px;
+  height: 700px;
   width: 100%;
   .carousel-item {
     height: 100%;

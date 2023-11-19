@@ -12,6 +12,9 @@
       :vote="el.vote_count"
       :originalTitle="el.original_title"
     /> -->
+    <section>
+      <MultiSlider />
+    </section>
     <section id="trend-movie" v-show="store.movieList.length <= 0" class="mt-5">
       <h2>popular movies of the week</h2>
       <LoaderComponent v-show="store.popularList.length <= 0" />
@@ -76,6 +79,7 @@ import CardComponent from "./CardComponent.vue";
 import HeroComponent from "./HeroComponent.vue";
 import JumboComponent from "./JumboComponent.vue";
 import LoaderComponent from "./LoaderComponent.vue";
+import MultiSlider from "./MultiSlider.vue";
 export default {
   name: "MainComponent",
   data() {
@@ -84,7 +88,13 @@ export default {
     };
   },
   computed: {},
-  components: { CardComponent, LoaderComponent, JumboComponent, HeroComponent },
+  components: {
+    CardComponent,
+    LoaderComponent,
+    JumboComponent,
+    HeroComponent,
+    MultiSlider,
+  },
 };
 </script>
 
