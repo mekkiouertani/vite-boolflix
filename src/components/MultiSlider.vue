@@ -1,38 +1,40 @@
 <template>
-  <Carousel
-    :autoplay="4000"
-    :itemsToShow="3.95"
-    :wrapAround="true"
-    :transition="500"
-  >
-    <Slide v-for="el in store.popularList" :key="el.id">
-      <div class="carousel__item position-relative">
-        <div class="box">
-          <img
-            :src="'https://image.tmdb.org/t/p/original/' + el.poster_path"
-            alt=""
-          />
+  <div class="position-relative">
+    <h3 class="position-absolute fs-1 mt-5">POPOLAR TV SERIES</h3>
+    <Carousel
+      :autoplay="4000"
+      :itemsToShow="3.95"
+      :wrapAround="true"
+      :transition="500"
+    >
+      <Slide v-for="el in store.popularTvList" :key="el.id">
+        <div class="carousel__item position-relative">
+          <div class="box">
+            <img
+              :src="'https://image.tmdb.org/t/p/original/' + el.poster_path"
+              alt=""
+            />
+          </div>
+          <h2 class="position-absolute text-secondary">{{ el.name }}</h2>
+          <!--  -->
+          <!-- <div class="dropdown position-absolute">
+              <button
+                class="btn btn-secondary dropdown-toggle bg-black"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              ></button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </div> -->
         </div>
-        <h2 class="position-absolute text-secondary">{{ el.title }}</h2>
         <!--  -->
-        <!-- <div class="dropdown position-absolute">
-          <button
-            class="btn btn-secondary dropdown-toggle bg-black"
-            type="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          ></button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </div> -->
-      </div>
-
-      <!--  -->
-    </Slide>
-  </Carousel>
+      </Slide>
+    </Carousel>
+  </div>
 </template>
 
 <script>

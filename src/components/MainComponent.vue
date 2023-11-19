@@ -15,7 +15,7 @@
     <section>
       <MultiSlider />
     </section>
-    <section id="trend-movie" v-show="store.movieList.length <= 0" class="mt-5">
+    <!--  <section id="trend-movie" v-show="store.movieList.length <= 0" class="mt-5">
       <h2>popular movies of the week</h2>
       <LoaderComponent v-show="store.popularList.length <= 0" />
       <div
@@ -32,7 +32,7 @@
           :originalTitle="el.original_title"
         />
       </div>
-    </section>
+    </section> -->
     <!-- MOVIE -->
     <section id="movie" class="mt-5">
       <h2>MOVIE</h2>

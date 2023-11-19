@@ -23,7 +23,8 @@
           </div>
         </div>
         <h4 class="mt-2" v-show="this.title !== this.originalTitle">
-          Titolo originale: <span class="fs-3">{{ originalTitle }}</span>
+          <span class="fs-6 d-block">Titolo originale: </span>
+          <span class="fs-3">{{ originalTitle }}</span>
         </h4>
 
         <h6 class="fs-4 text-start position-absolute">OverView:</h6>
@@ -112,6 +113,9 @@ h6 {
 
 h4 {
   text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .box {

@@ -13,33 +13,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-HTML CSS JSResult Skip Results Iframe EDIT ON body,
-ul {
-  margin: 0;
-  padding: 0;
-}
-a {
-  color: #fff;
-  text-decoration: none;
-  font-family: sans-serif;
-  transition: 0.6s;
-}
-a:hover {
-  color: gray;
-}
-
-#menu {
-  display: flex;
-  list-style: none;
-  gap: 0.5rem;
-}
-#menu a {
-  display: block;
-  padding: 0.5rem;
-}
-#btn {
-  display: none;
-}
 @media (max-width: 600px) {
   #menu {
     display: block;

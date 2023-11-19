@@ -11,7 +11,7 @@ export const store = reactive({
   params: {
     api_key: "7aa4f4882a7216c3bc091728b7de1e49",
     language: "it-IT",
-    query: "",
+    query: "star",
   },
 
   error: "",
@@ -19,6 +19,7 @@ export const store = reactive({
   movieList: [],
   seriesList: [],
   popularList: [],
+  popularTvList: [],
   genreMovies: [],
   imgPath: "https://image.tmdb.org/t/p/w342",
 });

@@ -1,5 +1,5 @@
 <template>
-  <BackGround />
+  <BackGround id="back" />
   <TitleComponent id="title" @searchBar="getTv(), getMovies()" />
   <MainComponent id="mainn" />
 </template>
@@ -41,6 +41,11 @@ export default {
         store.popularList = res.data.results;
         console.log(`trend`, res.data.results);
       });
+      const urlTv = store.apiTrend + store.endPoint.series + "/week";
+      axios.get(urlTv, { params: store.params }).then((res) => {
+        store.popularTvList = res.data.results;
+        console.log(`trendTv`, res.data.results);
+      });
     },
   },
   mounted() {
@@ -72,5 +77,8 @@ export default {
 <style lang="scss" scoped>
 #mainn {
   padding-top: 100px;
+}
+#back {
+  margin-top: -20px;
 }
 </style>
