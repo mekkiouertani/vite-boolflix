@@ -1,7 +1,30 @@
-Per inserire el.id nella tua chiamata getCredits, dovrai passare el.id come
-parametro nella funzione quando viene chiamata nell'evento @click. Ecco come
-puoi farlo: html Copy code
 <template>
+  <div
+    class="offcanvas offcanvas-end"
+    tabindex="-1"
+    id="offcanvasRight"
+    aria-labelledby="offcanvasRightLabel"
+  >
+    <div class="offcanvas-header mt-5">
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">Cast</h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      >
+        X
+      </button>
+    </div>
+    <div class="offcanvas-body">
+      <ul>
+        <li v-for="(actor, index) in store.cast" :key="index">
+          {{ actor }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
   <div class="position-relative">
     <h3 class="position-absolute fs-1 mt-5">POPULAR TV SERIES</h3>
     <Carousel
@@ -12,7 +35,21 @@ puoi farlo: html Copy code
     >
       <Slide v-for="el in store.popularTvList" :key="el.id">
         <div class="carousel__item position-relative">
-          <div class="box">
+          <!--   <button
+            class="btn btn-primary"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#staticBackdrop"
+            aria-controls="staticBackdrop"
+          > -->
+          <div
+            class="box"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight"
+            @click="getCredits(el.id)"
+          >
             <img
               :src="'https://image.tmdb.org/t/p/original/' + el.poster_path"
               alt=""
@@ -28,7 +65,7 @@ puoi farlo: html Copy code
               aria-expanded="false"
               @click="getCredits(el.id)"
             >
-              Cast
+              Credit
             </button>
             <ul class="dropdown-menu">
               <li v-for="(actor, index) in store.cast" :key="index">
@@ -82,6 +119,11 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.offcanvas {
+  z-index: 9999 !important;
+  background-color: black;
+  color: white;
+}
 button {
   position: absolute;
   left: 10px;
