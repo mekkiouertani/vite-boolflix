@@ -9,7 +9,7 @@
         <h2 class="mt-2">{{ title }}</h2>
 
         <div class="d-flex justify-content-between align-items-start">
-          <div id="flag">
+          <div id="flag" v-if="img">
             <img :src="getFlagApi" :alt="title" />
           </div>
           <div id="star">
@@ -22,11 +22,23 @@
             <span class="d-block">Voti totali: {{ vote }}</span>
           </div>
         </div>
-        <h4 class="mt-2" v-show="this.title !== this.originalTitle">
-          <span class="fs-6 d-block">Titolo originale: </span>
-          <span class="fs-3">{{ originalTitle }}</span>
-        </h4>
+        <div class="position-relative">
+          <div class="mt-2" v-show="this.title !== this.originalTitle">
+            <span class="fs-6 d-block text-start">Titolo originale: </span>
+            <h4 v-if="isClicked" @click="isClicked = false" class="fs-3">
+              {{ originalTitle }}
+            </h4>
+            <h5
+              v-if="!isClicked"
+              @click="isClicked = true"
+              class="fs-3 text-start border-bottom"
+            >
+              {{ originalTitle }}
+            </h5>
+          </div>
+        </div>
 
+        <!--  -->
         <h6 class="fs-4 text-start position-absolute">OverView:</h6>
         <div id="overview" class="text-white mb-3 position-absolute">
           {{ overview }}
@@ -50,6 +62,7 @@ export default {
   },
   data() {
     return {
+      isClicked: true,
       /* flags: ["us", "fr", "it", "en"], */
     };
   },
@@ -71,6 +84,10 @@ export default {
         apiFlag = "GB";
       } else if (apiFlag === "JA") {
         apiFlag = "JP";
+      } else if (apiFlag === "DA") {
+        apiFlag = "CA";
+      } else if (apiFlag === "ZH") {
+        apiFlag = "ES";
       }
       console.log(`hello`, apiFlag);
       return (this.currentFlag =
@@ -82,6 +99,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.dropdown {
+  top: 10%;
+  right: -70%;
+  button {
+    width: 100%;
+    opacity: 0;
+  }
+  .dropdown-menu,
+  .dropdown-item {
+    background-color: black;
+    bottom: 20px !important;
+    color: white;
+    height: 100px;
+    max-width: 100%;
+  }
+}
 h6 {
   bottom: 160px;
 }
@@ -116,8 +149,11 @@ h4 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  cursor: pointer;
 }
-
+h5 {
+  cursor: pointer;
+}
 .box {
   background-color: transparent;
   width: 300px;
