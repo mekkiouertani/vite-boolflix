@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div v-if="!img.includes(null)" class="box">
     <div class="box-inner">
       <div class="box-front">
         <img :src="img" :alt="title" />

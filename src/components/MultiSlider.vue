@@ -59,6 +59,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.position-relative {
+  min-width: 150px;
+}
 button {
   background-color: transparent !important;
   border: 0px;
@@ -82,8 +85,8 @@ h2 {
   );
 }
 .carousel__item {
-  height: 450px;
-  width: 300px;
+  /*   height: 450px;
+  width: 300px; */
   background-color: red;
   margin-top: 100px;
 }
