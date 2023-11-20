@@ -42,6 +42,9 @@
         <h6 class="fs-4 text-start position-absolute">OverView:</h6>
         <div id="overview" class="text-white mb-3 position-absolute">
           {{ overview }}
+          <span v.if="overview === ''"
+            >Al momento non abbiamo alcuna descrizione</span
+          >
         </div>
       </div>
     </div>
@@ -88,6 +91,8 @@ export default {
         apiFlag = "CA";
       } else if (apiFlag === "ZH") {
         apiFlag = "ES";
+      } else if (apiFlag === "Hi") {
+        apiFlag = "CL";
       }
       console.log(`hello`, apiFlag);
       return (this.currentFlag =
