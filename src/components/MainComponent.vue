@@ -36,6 +36,10 @@
     <!-- MOVIE -->
     <section id="movie" class="mt-5">
       <h2>MOVIE</h2>
+      <h2 v-if="store.movieList.length <= 0" class="text-white">
+        ciao! qui compariranno i titoli che cercherai nella barra di ricerca!
+        Buona visione
+      </h2>
       <div
         class="d-flex flex-wrap justify-content-center align-content-center align-items-center"
       >
@@ -67,6 +71,7 @@
           :rate="el.vote_average"
           :vote="el.vote_count"
           :originalTitle="el.original_title"
+          :id="el.id"
         />
       </div>
     </section>

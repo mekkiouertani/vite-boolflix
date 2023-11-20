@@ -11,9 +11,9 @@ export const store = reactive({
   params: {
     api_key: "7aa4f4882a7216c3bc091728b7de1e49",
     language: "it-IT",
-    query: "star",
+    query: "",
   },
-
+  x: "https://api.themoviedb.org/3/tv/84958/credits?api_key=7aa4f4882a7216c3bc091728b7de1e49",
   error: "",
   loading: true,
   movieList: [],
@@ -21,5 +21,6 @@ export const store = reactive({
   popularList: [],
   popularTvList: [],
   genreMovies: [],
+  cast: [],
   imgPath: "https://image.tmdb.org/t/p/w342",
 });

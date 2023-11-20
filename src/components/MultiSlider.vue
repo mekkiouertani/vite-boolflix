@@ -1,6 +1,9 @@
+Per inserire el.id nella tua chiamata getCredits, dovrai passare el.id come
+parametro nella funzione quando viene chiamata nell'evento @click. Ecco come
+puoi farlo: html Copy code
 <template>
   <div class="position-relative">
-    <h3 class="position-absolute fs-1 mt-5">POPOLAR TV SERIES</h3>
+    <h3 class="position-absolute fs-1 mt-5">POPULAR TV SERIES</h3>
     <Carousel
       :autoplay="4000"
       :itemsToShow="3.95"
@@ -16,28 +19,31 @@
             />
           </div>
           <h2 class="position-absolute text-secondary">{{ el.name }}</h2>
-          <!--  -->
-          <!-- <div class="dropdown position-absolute">
-              <button
-                class="btn btn-secondary dropdown-toggle bg-black"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              ></button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </div> -->
+
+          <div class="dropdown position-absolute start-0">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              @click="getCredits(el.id)"
+            >
+              Cast
+            </button>
+            <ul class="dropdown-menu">
+              <li v-for="(actor, index) in store.cast" :key="index">
+                {{ actor }}
+              </li>
+            </ul>
+          </div>
         </div>
-        <!--  -->
       </Slide>
     </Carousel>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 import { store } from "../data/store.js";
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
@@ -54,25 +60,50 @@ export default {
       store,
     };
   },
-  methods: {},
+  methods: {
+    getCredits(tvShowId) {
+      const urlStart = store.apiGenre + "tv/" + tvShowId + "/credits";
+      let cast = [];
+      axios.get(urlStart, { params: this.store.params }).then((res) => {
+        console.log(`crediti`, res.data.cast);
+        for (let i = 0; i < 5; i++) {
+          if (res.data.cast[i]) {
+            cast.push(res.data.cast[i].name);
+          }
+        }
+        this.store.cast = cast;
+      });
+    },
+  },
+  mounted() {
+    this.getCredits();
+    console.log(`store cast`, store.cast);
+  },
 };
 </script>
-
 <style lang="scss" scoped>
+button {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  background-color: black;
+  color: red;
+  padding: 5px 10px !important;
+  font-size: 0.8em;
+}
 .position-relative {
   min-width: 150px;
 }
-button {
-  background-color: transparent !important;
-  border: 0px;
-  color: red;
-  padding: 0 !important;
-  font-size: 2em;
-}
+
 .dropdown {
   top: 0px;
   right: 10px;
   z-index: 9999;
+}
+.dropdown-menu {
+  background-color: black;
+  color: white;
+  padding: 10px;
 }
 h2 {
   width: 100%;
@@ -89,6 +120,7 @@ h2 {
   width: 300px; */
   background-color: red;
   margin-top: 100px;
+  z-index: 8000 !important;
 }
 .box {
   height: 100%;

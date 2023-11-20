@@ -62,6 +62,7 @@ export default {
     rate: Number,
     language: String,
     vote: Number,
+    id: Number,
   },
   data() {
     return {
@@ -91,7 +92,7 @@ export default {
         apiFlag = "CA";
       } else if (apiFlag === "ZH") {
         apiFlag = "ES";
-      } else if (apiFlag === "Hi") {
+      } else if (apiFlag === "HI ") {
         apiFlag = "CL";
       }
       console.log(`hello`, apiFlag);

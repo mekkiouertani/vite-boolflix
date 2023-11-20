@@ -1,7 +1,7 @@
 <template>
-  <IntroComponent id="intro" />
+  <!-- <IntroComponent id="intro" /> -->
   <BackGround id="back" />
-  <TitleComponent id="title" @searchBar="getTv(), getMovies()" />
+  <TitleComponent id="title" @searchBar="getTv(), getMovies(), getCredits()" />
   <MainComponent id="mainn" />
 </template>
 
